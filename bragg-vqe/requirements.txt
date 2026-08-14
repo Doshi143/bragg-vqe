@@ -1,0 +1,9 @@
+# Core dependencies (used by src/ and the notebooks)
+numpy==2.5.1
+pandas==3.0.5
+matplotlib==3.11.0
+qiskit==2.5.0
+qiskit-algorithms==0.4.0
+
+# To open and run the notebooks
+jupyterlab==4.6.1

@@ -3,6 +3,22 @@
 A small, self-contained quantum simulation of Bragg diffraction in a Bose–Einstein condensate,
 using a truncated 3-state momentum-space model and the Variational Quantum Eigensolver (VQE).
 
+![Exact and VQE momentum populations vs detuning](bragg-vqe/figures/fig3_exact_vqe_populations.png)
+
+*VQE ground-state momentum populations (markers) tracking the exact solution (lines) across the
+full detuning sweep, including through both avoided crossings.*
+
+## Setup
+
+```bash
+pip install -r bragg-vqe/requirements.txt
+jupyter lab bragg-vqe/notebooks
+```
+
+Run the notebooks in order — `01_exact_model` → `02_encoding_and_pauli_form` →
+`03_vqe_single_point` → `04_detuning_sweep` — each writes into `bragg-vqe/results/` and
+`bragg-vqe/figures/`.
+
 ## Aims
 
 * Derive a physically meaningful 3-state Bragg Hamiltonian in momentum space.
