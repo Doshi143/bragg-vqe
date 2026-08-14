@@ -3,8 +3,6 @@
 A small, self-contained quantum simulation of Bragg diffraction in a Bose–Einstein condensate,
 using a truncated 3-state momentum-space model and the Variational Quantum Eigensolver (VQE).
 
-See [weekend_plan.md](weekend_plan.md) for the full project plan and physical background.
-
 ## Aims
 
 * Derive a physically meaningful 3-state Bragg Hamiltonian in momentum space.
@@ -46,7 +44,6 @@ Running the notebooks in `notebooks/` in order (01 → 04) produces:
 ```
 bragg-vqe/
 ├── README.md
-├── weekend_plan.md
 ├── notebooks/
 │   ├── 01_exact_model.ipynb
 │   ├── 02_encoding_and_pauli_form.ipynb
