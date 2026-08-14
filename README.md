@@ -16,9 +16,9 @@ using a truncated 3-state momentum-space model and the Variational Quantum Eigen
 
 ## Outputs
 
-Running the notebooks in `notebooks/` in order (01 → 04) produces:
+Running the notebooks in `bragg-vqe/notebooks/` in order (01 → 04) produces:
 
-**Figures** (`figures/`)
+**Figures** (`bragg-vqe/figures/`)
 1. `fig1_exact_eigenspectrum.png` — exact eigenspectrum vs detuning $\delta$
 2. `fig2_exact_vqe_energy.png` — exact and VQE ground-state energies vs $\delta$
 3. `fig3_exact_vqe_populations.png` — exact and VQE momentum populations vs $\delta$
@@ -27,7 +27,7 @@ Running the notebooks in `notebooks/` in order (01 → 04) produces:
    $\delta = -4, 0, 4$
 6. `ansatz_circuit.png` — the two-qubit VQE ansatz circuit diagram
 
-**Data** (`results/`)
+**Data** (`bragg-vqe/results/`)
 * `vqe_detuning_sweep.csv` — per-detuning exact/VQE energies, energy error, fidelity, momentum
   populations, and leakage into the unphysical $|11\rangle$ state
 
@@ -43,7 +43,6 @@ Running the notebooks in `notebooks/` in order (01 → 04) produces:
 
 ```
 bragg-vqe/
-├── README.md
 ├── notebooks/
 │   ├── 01_exact_model.ipynb
 │   ├── 02_encoding_and_pauli_form.ipynb
