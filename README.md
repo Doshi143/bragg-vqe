@@ -3,6 +3,8 @@
 A small, self-contained quantum simulation of Bragg diffraction in a Bose–Einstein condensate,
 using a truncated 3-state momentum-space model and the Variational Quantum Eigensolver (VQE).
 
+## Example output
+
 ![Exact and VQE momentum populations vs detuning](bragg-vqe/figures/fig3_exact_vqe_populations.png)
 
 *VQE ground-state momentum populations (markers) tracking the exact solution (lines) across the
