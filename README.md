@@ -423,8 +423,13 @@ subspace:
 H_{\text{eff}}=\begin{pmatrix}0 & \Omega\\ \Omega & 4-\delta\end{pmatrix}.
 ```
 
-For a general two-level Hamiltonian $\begin{pmatrix}a & \Omega\\ \Omega & b\end{pmatrix}$, the
-eigenvalues are
+For a general two-level Hamiltonian
+
+```math
+\begin{pmatrix}a & \Omega\\ \Omega & b\end{pmatrix},
+```
+
+the eigenvalues are
 
 ```math
 E_{\pm}=\frac{a+b}{2}\pm\sqrt{\left(\frac{a-b}{2}\right)^2+\Omega^2},
