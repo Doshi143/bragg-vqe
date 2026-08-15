@@ -80,4 +80,379 @@ exploratory/plotting layer on top.
 
 ## Theory
 
-*(to be added)*
+### Derivation of the 3-state Bragg Hamiltonian
+
+#### 1. Start from the lab-frame Schrödinger equation
+
+We begin with the single-particle Hamiltonian
+
+$$
+H(t)=\frac{\hat p^2}{2m}+V_0\cos(2k_Lx-\delta t),
+$$
+
+so the Schrödinger equation is
+
+$$
+i\hbar \frac{\partial}{\partial t}\psi(x,t)
+=
+\left(
+\frac{\hat p^2}{2m}+V_0\cos(2k_Lx-\delta t)
+\right)\psi(x,t).
+$$
+
+We expand the wavefunction in plane-wave momentum orders:
+
+$$
+\psi(x,t)=\sum_{n=-\infty}^{\infty} c_n(t)e^{i2nk_Lx}.
+$$
+
+The basis state $e^{i2nk_Lx}$ corresponds to momentum
+
+$$
+p_n=2n\hbar k_L.
+$$
+
+#### 2. Time derivative term
+
+Differentiate the expansion with respect to time:
+
+$$
+\frac{\partial}{\partial t}\psi(x,t)
+=\sum_n \dot c_n(t)e^{i2nk_Lx}.
+$$
+
+So the left-hand side becomes
+
+$$
+i\hbar\frac{\partial}{\partial t}\psi(x,t)
+=\sum_n i\hbar \dot c_n(t)e^{i2nk_Lx}.
+$$
+
+#### 3. Kinetic-energy term
+
+The momentum operator is
+
+$$
+\hat p=-i\hbar\frac{\partial}{\partial x}.
+$$
+
+Acting on one basis function,
+
+$$
+\hat p\,e^{i2nk_Lx}
+=-i\hbar\frac{\partial}{\partial x}e^{i2nk_Lx}
+=2n\hbar k_L\,e^{i2nk_Lx}.
+$$
+
+Applying $\hat p$ again gives
+
+$$
+\hat p^2 e^{i2nk_Lx}=(2n\hbar k_L)^2 e^{i2nk_Lx}.
+$$
+
+Hence
+
+$$
+\frac{\hat p^2}{2m}e^{i2nk_Lx}
+=\frac{(2n\hbar k_L)^2}{2m}e^{i2nk_Lx}.
+$$
+
+Define the recoil energy
+
+$$
+E_r=\frac{\hbar^2k_L^2}{2m}.
+$$
+
+Then
+
+$$
+\frac{(2n\hbar k_L)^2}{2m}=4n^2E_r,
+$$
+
+so
+
+$$
+\frac{\hat p^2}{2m}e^{i2nk_Lx}=4n^2E_r\,e^{i2nk_Lx}.
+$$
+
+Therefore,
+
+$$
+\frac{\hat p^2}{2m}\psi(x,t)
+=\sum_n 4n^2E_r\,c_n(t)e^{i2nk_Lx}.
+$$
+
+#### 4. Potential term
+
+Write the cosine as exponentials:
+
+$$
+\cos(2k_Lx-\delta t)
+=\frac12\left(e^{i(2k_Lx-\delta t)}+e^{-i(2k_Lx-\delta t)}\right).
+$$
+
+So
+
+$$
+V_0\cos(2k_Lx-\delta t)
+=\frac{V_0}{2}e^{i2k_Lx}e^{-i\delta t}
++\frac{V_0}{2}e^{-i2k_Lx}e^{i\delta t}.
+$$
+
+Multiplying by the wavefunction gives
+
+$$
+V_0\cos(2k_Lx-\delta t)\psi(x,t)
+=
+\frac{V_0}{2}e^{i2k_Lx}e^{-i\delta t}\sum_n c_n e^{i2nk_Lx}
++
+\frac{V_0}{2}e^{-i2k_Lx}e^{i\delta t}\sum_n c_n e^{i2nk_Lx}.
+$$
+
+Distribute the exponentials:
+
+$$
+=
+\frac{V_0}{2}\sum_n c_n e^{-i\delta t} e^{i2(n+1)k_Lx}
++
+\frac{V_0}{2}\sum_n c_n e^{i\delta t} e^{i2(n-1)k_Lx}.
+$$
+
+Now relabel the summation indices so both sums are written in terms of $e^{i2nk_Lx}$.
+
+For the first sum, let $n\to n-1$:
+
+$$
+\frac{V_0}{2}\sum_n e^{-i\delta t} c_{n-1} e^{i2nk_Lx}.
+$$
+
+For the second sum, let $n\to n+1$:
+
+$$
+\frac{V_0}{2}\sum_n e^{i\delta t} c_{n+1} e^{i2nk_Lx}.
+$$
+
+So the potential term becomes
+
+$$
+V_0\cos(2k_Lx-\delta t)\psi(x,t)
+=
+\sum_n \frac{V_0}{2}\left(e^{-i\delta t}c_{n-1}(t)+e^{i\delta t}c_{n+1}(t)\right)e^{i2nk_Lx}.
+$$
+
+#### 5. Equate coefficients of each plane wave
+
+The Schrödinger equation now reads
+
+$$
+\sum_n i\hbar \dot c_n e^{i2nk_Lx}
+=
+\sum_n 4n^2E_r c_n e^{i2nk_Lx}
++
+\sum_n \frac{V_0}{2}\left(e^{-i\delta t}c_{n-1}+e^{i\delta t}c_{n+1}\right)e^{i2nk_Lx}.
+$$
+
+Since the plane waves $e^{i2nk_Lx}$ are linearly independent, the coefficients must match for each $n$:
+
+$$
+i\hbar \dot c_n(t)
+=4n^2E_r\,c_n(t)
++\frac{V_0}{2}\left(e^{-i\delta t}c_{n-1}(t)+e^{i\delta t}c_{n+1}(t)\right).
+$$
+
+This is the lab-frame coupled-mode equation.
+
+#### 6. Rotating-frame transformation
+
+Define new amplitudes $b_n(t)$ by
+
+$$
+c_n(t)=b_n(t)e^{-in\delta t}.
+$$
+
+This removes the explicit time dependence from the couplings.
+
+Differentiate:
+
+$$
+\dot c_n(t)
+=\dot b_n(t)e^{-in\delta t}-in\delta\,b_n(t)e^{-in\delta t}.
+$$
+
+Multiply by $i\hbar$:
+
+$$
+i\hbar\dot c_n(t)
+=i\hbar\dot b_n(t)e^{-in\delta t}
++\hbar n\delta\,b_n(t)e^{-in\delta t}.
+$$
+
+Substitute into the lab-frame equation:
+
+$$
+i\hbar\dot b_n e^{-in\delta t}
++\hbar n\delta\,b_n e^{-in\delta t}
+=4n^2E_r\,b_n e^{-in\delta t}
++\frac{V_0}{2}\left(e^{-i\delta t}b_{n-1}e^{-i(n-1)\delta t}+e^{i\delta t}b_{n+1}e^{-i(n+1)\delta t}\right).
+$$
+
+Simplify the phases:
+
+$$
+e^{-i\delta t}e^{-i(n-1)\delta t}=e^{-in\delta t},
+$$
+
+$$
+e^{i\delta t}e^{-i(n+1)\delta t}=e^{-in\delta t}.
+$$
+
+So the equation becomes
+
+$$
+i\hbar\dot b_n e^{-in\delta t}
++\hbar n\delta\,b_n e^{-in\delta t}
+=4n^2E_r\,b_n e^{-in\delta t}
++\frac{V_0}{2}(b_{n-1}+b_{n+1})e^{-in\delta t}.
+$$
+
+Divide through by $e^{-in\delta t}$:
+
+$$
+i\hbar\dot b_n
++\hbar n\delta\,b_n
+=4n^2E_r\,b_n
++\frac{V_0}{2}(b_{n-1}+b_{n+1}).
+$$
+
+Rearrange:
+
+$$
+i\hbar\dot b_n
+=\left(4n^2E_r-\hbar n\delta\right)b_n
++\frac{V_0}{2}(b_{n-1}+b_{n+1}).
+$$
+
+#### 7. Rotating-frame Hamiltonian
+
+Therefore, the effective Hamiltonian in the momentum basis is
+
+$$
+H_{\text{rot}}
+=\sum_n \left(4n^2E_r-\hbar n\delta\right)|n\rangle\langle n|
++\frac{V_0}{2}\sum_n\left(|n\rangle\langle n+1|+|n+1\rangle\langle n|\right).
+$$
+
+This is the infinite momentum ladder.
+
+#### 8. Three-state truncation
+
+Keep only
+
+$$
+n=-1,0,+1.
+$$
+
+The basis is
+
+$$
+\{|{-1}\rangle,|0\rangle,|{+1}\rangle\}.
+$$
+
+The diagonal energies are:
+
+- for $n=-1$:
+  $$
+  4E_r+\hbar\delta
+  $$
+- for $n=0$:
+  $$
+  0
+  $$
+- for $n=+1$:
+  $$
+  4E_r-\hbar\delta
+  $$
+
+The couplings are:
+
+- $|{-1}\rangle \leftrightarrow |0\rangle$ with strength $V_0/2$,
+- $|0\rangle \leftrightarrow |{+1}\rangle$ with strength $V_0/2$,
+- no direct $|{-1}\rangle \leftrightarrow |{+1}\rangle$ coupling.
+
+So the three-state Hamiltonian is
+
+$$
+H_3
+=\begin{pmatrix}
+4E_r+\hbar\delta & \frac{V_0}{2} & 0\\
+\frac{V_0}{2} & 0 & \frac{V_0}{2}\\
+0 & \frac{V_0}{2} & 4E_r-\hbar\delta
+\end{pmatrix}.
+$$
+
+In the dimensionless units used in the code,
+
+$$
+E_r=\hbar=1,
+\qquad
+\Omega=\frac{V_0}{2},
+$$
+
+so this becomes
+
+$$
+H_3
+=\begin{pmatrix}
+4+\delta & \Omega & 0\\
+\Omega & 0 & \Omega\\
+0 & \Omega & 4-\delta
+\end{pmatrix}.
+$$
+
+#### 9. Physical interpretation
+
+- The diagonal terms $4n^2E_r-\hbar n\delta$ are the effective rotating-frame energies of the momentum orders.
+- The off-diagonal terms $\Omega$ couple neighbouring momentum states through Bragg scattering.
+- The three-state truncation is valid when higher momentum orders are energetically suppressed.
+- The avoided crossings appear when one of the moving momentum states becomes resonant with the zero-momentum state.
+
+### Avoided crossings and the $2\Omega$ gap
+
+An avoided crossing is what happens when two energy levels *would* cross as a parameter is swept,
+but a coupling between the underlying states mixes them instead — the true eigenvalues bend away
+from each other and never actually touch. In Figure 1, this is visible as the two lowest bands
+curving apart near $\delta=\pm4$ rather than passing straight through one another.
+
+Near $\delta=+4$, the $|0\rangle$ state (diagonal energy $0$) and the $|{+1}\rangle$ state
+(diagonal energy $4-\delta$) become nearly degenerate, while $|{-1}\rangle$ is far detuned and can
+be dropped. That leaves an effective two-level Hamiltonian in the $\{|0\rangle,|{+1}\rangle\}$
+subspace:
+
+$$
+H_{\text{eff}}=\begin{pmatrix}0 & \Omega\\ \Omega & 4-\delta\end{pmatrix}.
+$$
+
+For a general two-level Hamiltonian $\begin{pmatrix}a & \Omega\\ \Omega & b\end{pmatrix}$, the
+eigenvalues are
+
+$$
+E_{\pm}=\frac{a+b}{2}\pm\sqrt{\left(\frac{a-b}{2}\right)^2+\Omega^2},
+$$
+
+so the gap between the two branches is
+
+$$
+\Delta E=E_+-E_-=2\sqrt{\left(\frac{a-b}{2}\right)^2+\Omega^2}.
+$$
+
+Here $a=0$ and $b=4-\delta$, so $(a-b)/2=(\delta-4)/2$, which vanishes exactly at resonance,
+$\delta=4$. At that point the gap collapses to its minimum value:
+
+$$
+\Delta E_{\min}=2\Omega.
+$$
+
+Away from resonance the $(\delta-4)^2$ term grows again and the gap widens — that's the "avoided"
+shape of the crossing. This is exactly the relationship checked numerically in Figure 4: the
+minimum gap found by direct diagonalization matches the analytic $2\Omega$ line across every
+coupling strength swept.
